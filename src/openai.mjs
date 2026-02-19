@@ -61,6 +61,11 @@ class HttpError extends Error {
 const fixCors = ({ headers, status, statusText }) => {
   headers = new Headers(headers);
   headers.set("Access-Control-Allow-Origin", "*");
+
+  // 新增：删除会导致 gzip 解析报错的 headers
+  headers.delete("content-encoding");
+  headers.delete("content-length"); 
+
   return { headers, status, statusText };
 };
 
@@ -679,3 +684,4 @@ function toOpenAiStreamFlush (controller) {
     controller.enqueue("data: [DONE]" + delimiter);
   }
 }
+
