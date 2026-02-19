@@ -1,4 +1,7 @@
-[[redirects]]
-  from = "/"
-  to = "/.netlify/functions/api"
-  status = 200
+[[
+redirects
+]]
+from = "/*" # 匹配所有路径
+to = "/.netlify/functions/api"
+status = 200
+
