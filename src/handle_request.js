@@ -51,6 +51,7 @@ export async function handleRequest(request) {
       method: request.method,
       headers: headers,
       body: request.body
+      duplex: 'half'
     });
 
     console.log("Call Gemini Success")
